@@ -79,3 +79,4 @@ export function showTransactions(id){
         }
     }
 }
+//ALSO export{showTransactions,checkBalance,deposit,withdraw}
