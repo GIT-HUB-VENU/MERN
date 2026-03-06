@@ -4,7 +4,7 @@ app.set("view engine","ejs");
 app.set("views","views");
 app.listen(8080,()=>{console.log("Server started at 8080")});
 app.use(express.urlencoded({extended:true}));
-const users = [{id: 1, username: "shetty", email: "shetty@gmail.com", password: "password123"},
+let users = [{id: 1, username: "shetty", email: "shetty@gmail.com", password: "password123"},
 {id: 2, username: "kannu", email: "kannu@gmail.com", password: "password456"},
 {id: 3, username: "somu", email: "somu@gmail.com", password: "password789"}];
 
@@ -26,6 +26,13 @@ app.post("/login",(req,res)=>{
 
 app.get("/register",(req,res)=>{
     res.render("register");
+});
+
+app.post("/register",(req,res)=>{
+    const { username, email, password } = req.body;
+    const newUser = { id: users.length + 1, username, email, password };
+    users.push(newUser);
+    res.redirect("/login");
 });
 
 app.get("/",(req,res)=>{
