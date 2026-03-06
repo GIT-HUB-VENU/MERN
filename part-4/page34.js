@@ -5,6 +5,7 @@ const app = express();
 app.set("view engine","ejs");
 app.set("views","views");
 app.use(expressLayouts);
+app.use(express.static("public"));
 app.listen(8080,()=>{console.log("Server started at 8080")});
 app.use(express.urlencoded({extended:true}));
 app.use(
