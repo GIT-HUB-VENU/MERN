@@ -19,9 +19,8 @@ app.post("/login",(req,res)=>{
         res.redirect("/");
     }
     else{
-        res.redirect("/login");
+        res.render("login", { error: "Invalid email or password" });
     }
-    res.redirect("/");
 });
 
 app.get("/register",(req,res)=>{
